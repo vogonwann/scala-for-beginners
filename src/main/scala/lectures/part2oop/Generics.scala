@@ -23,7 +23,7 @@ object Generics extends App {
   var emptyListOfIntegers = MyList.empty[Int]
 
   // variance problem
-  class unknownAnimal
+  class Animal
   class Cat extends Animal
   class Dog extends Animal
 
@@ -40,4 +40,8 @@ object Generics extends App {
   // 3. hell, no! CONTRAVARIANCE
   class Trainer[-A]
   val contravariantList:Trainer[Cat] = new Trainer[Animal]
+
+  // bounded types
+  class Cage[A <: Animal] (animal: A) // this generic class can only be used with the subtypes of Animal
+  val cage = new Cage(new Dog)
 }
