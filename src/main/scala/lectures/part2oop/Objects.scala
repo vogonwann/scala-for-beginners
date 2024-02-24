@@ -22,7 +22,7 @@ object Objects extends App {
   println(Person.N_EYES)
   println(Person.canFly)
 
-  // Scala object = SINGLETONE INSTANCE
+  // Scala object = SINGLETONE INSTANCE 
   val mary = new Person("Mary")
   val john = new Person("John")
   println(mary == john) // false
