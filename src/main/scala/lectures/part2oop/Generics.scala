@@ -4,8 +4,12 @@ import lectures.part2oop.Inheritance.unknownAnimal
 import lectures.part2oop.AbstractDataTypes.Animal
 
 object Generics extends App {
-  class MyList[A] {
-
+  class MyList[+A] {
+    def add[B >: A](element: B): MyList[B] = ???
+    /* 
+    A -> Dog
+    B -> Cat => Animal, so B -> Animal
+     */
   }
 
   class MyMap[Key, Value] {
@@ -31,7 +35,7 @@ object Generics extends App {
   class CovariantList[+A]
   val animal: Animal = new Cat
   val animalList: CovariantList[Animal] = new CovariantList[Cat]
-  // animalList.add(new Dog) ??? HARD QUESTION
+  // animalList.add(new Dog) ??? HARD QUESTION => we return a lsit of Animals
 
   // 2. no - INVARIANCE
   class InvariantList[A]
